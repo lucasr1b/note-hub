@@ -7,7 +7,6 @@ const SidebarExpand = () => {
   const [expanded, setExpanded] = useState('');
 
   const rotateCaret = (e:any) => {
-    console.log('Clicked caret')
     console.log(e.target.getAttribute('data-expanded'))
 
     setStyle({
