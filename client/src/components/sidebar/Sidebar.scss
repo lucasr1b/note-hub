@@ -2,8 +2,8 @@
     font-size: 14px;
     line-height: 1.5;
     font-weight: 500;
-    background-color: #e9e9eb;
-    color: #828589;
+    background-color: #181c20;
+    color: #8493a4;
     width: 230px;
     height: 100vh;
 
@@ -14,7 +14,7 @@
         height: 28px;
 
         &:hover {
-            background-color: #d9d9df;
+            background-color: #292d31;
             cursor: pointer;
         }
 
@@ -24,7 +24,7 @@
     }
 
     .Account {
-        color: #262626;
+        color: #e4effa;
         font-weight: 600;
         width: 100%;
         height: 50px;
@@ -47,16 +47,15 @@
     .Directory {
         .Active {
             font-weight: 600;
-            background-color: #d9d9df;
+            background-color: #292d31;
+            color: #cbdbe9;
 
             .Expand {
-                color: #828589;
+                color: #828489;
             }
 
-            color: #262626;
-
             &:hover {
-                background-color: #ceced4;
+                background-color: #22282f;
             }
         }
     }
@@ -70,7 +69,7 @@
         position: absolute;
         bottom: 0;
         display: flex;
-        border-top: 1px solid #C9C3C3;
+        border-top: 1px solid #26262e;
 
         span {
             margin-left: 15px;
@@ -87,7 +86,7 @@
         margin-right: 5px;
         
         &:hover {
-            background-color: #bfbcc3;
+            background-color: #26272f;
         }
     }
 }
