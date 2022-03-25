@@ -1,10 +1,11 @@
 import React from 'react'
 import './App.scss';
+import Sidebar from '../components/Sidebar';
 
 const App = () => {
     return (
         <div className='App'>
-            <h1>Note Hub</h1>
+            <Sidebar />
         </div>
     )
 }
