@@ -21,6 +21,9 @@ const Sidebar = () => {
                 <div className='Item'><SidebarExtend /><SidebarIcon icon='📒' />Projects</div>
                 <div className='Item'><SidebarExtend /><SidebarIcon icon='📕' />Books</div>
             </div>
+            <div className='Footer'>
+                <span>Note Hub v1.0</span>
+            </div>
         </nav>
     )
 }
