@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { FaCaretRight } from 'react-icons/fa';
-import { rootCertificates } from 'tls';
 
 const SidebarExpand = () => {
   const [style, setStyle] = useState({});
