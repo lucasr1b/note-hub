@@ -1,6 +1,7 @@
 import React from 'react'
 import './Sidebar.scss'
 import SidebarIcon from './SidebarIcon';
+import SidebarExtend from './SidebarExpand';
 import { FaSearch, FaTerminal, FaCog } from 'react-icons/fa';
 
 const Sidebar = () => {
@@ -15,10 +16,10 @@ const Sidebar = () => {
                 <div className='Item'><FaCog /> Settings</div>
             </div>
             <div className='Directory'>
-                <div className='Item Active'><SidebarIcon icon='📄' />My Notes</div>
-                <div className='Item'><SidebarIcon icon='📚' />School</div>
-                <div className='Item'><SidebarIcon icon='📒' />Projects</div>
-                <div className='Item'><SidebarIcon icon='📕' />Books</div>
+                <div className='Item Active'><SidebarExtend /><SidebarIcon icon='📄' />My Notes</div>
+                <div className='Item'><SidebarExtend /><SidebarIcon icon='📚' />School</div>
+                <div className='Item'><SidebarExtend /><SidebarIcon icon='📒' />Projects</div>
+                <div className='Item'><SidebarExtend /><SidebarIcon icon='📕' />Books</div>
             </div>
         </nav>
     )

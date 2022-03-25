@@ -15,13 +15,11 @@
 
         &:hover {
             background-color: #d9d9df;
-            color: #262626;
             cursor: pointer;
         }
 
         svg {
             width: 16px;
-            margin-right: 10px;
         }
     }
 
@@ -40,12 +38,21 @@
 
     .Options {
         margin-bottom: 25px;
+
+        svg {
+            margin-right: 10px;
+        }
     }
 
     .Directory {
         .Active {
             font-weight: 600;
             background-color: #d9d9df;
+
+            .Expand {
+                color: #828589;
+            }
+
             color: #262626;
 
             &:hover {
