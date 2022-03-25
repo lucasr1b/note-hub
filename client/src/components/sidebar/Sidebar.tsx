@@ -7,7 +7,7 @@ const Sidebar = () => {
     return (
         <nav className='Sidebar'>
             <div className='Item Account'>
-                <span>Lucas's Notes</span>
+                <img src="https://avatars.githubusercontent.com/u/38605132?v=4"/><span>Lucas's Notes</span>
             </div>
             <div className='Options'>
                 <div className='Item'><FaSearch /> Search</div>
