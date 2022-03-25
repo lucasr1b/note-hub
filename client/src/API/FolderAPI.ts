@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import path from 'path';
-import { createPath } from './utils';
+import { createPath } from './APIUtils';
 
 const baseUrl: string = 'http://localhost:4000';
 

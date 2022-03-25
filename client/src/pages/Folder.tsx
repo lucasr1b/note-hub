@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { getNotes, addNote, updateNote, deleteNote } from '../API/notes';
+import { getNotes, addNote, updateNote, deleteNote } from '../API/NoteAPI';
 import NoteItem from '../components/notes/NoteItem';
 
 const Folder: React.FC = () => {

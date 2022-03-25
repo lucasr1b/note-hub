@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { createFolder, deleteFolder, getFolders, updateFolder } from '../API/folders';
-import { addNote, deleteNote, getNotes, updateNote } from '../API/notes';
+import { createFolder, deleteFolder, getFolders, updateFolder } from '../API/FolderAPI';
+import { addNote, deleteNote, getNotes, updateNote } from '../API/NoteAPI';
 import CreateFolder from '../components/folders/CreateFolder';
 import FolderItem from '../components/folders/FolderItem';
 import AddNote from '../components/notes/AddNote';
