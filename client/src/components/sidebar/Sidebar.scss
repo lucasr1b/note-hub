@@ -53,6 +53,10 @@
                 color: #828489;
             }
 
+            .Icon:hover {
+                background-color: #1c1d25;
+            }
+
             &:hover {
                 background-color: #22282f;
             }
@@ -85,7 +89,7 @@
         margin-right: 5px;
         
         &:hover {
-            background-color: #26272f;
+            background-color: #22232e;
         }
     }
 }
