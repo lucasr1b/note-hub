@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { createFolder, getFolders, updateFolder, deleteFolder } from './API/folders';
-import CreateFolder from './components/folders/CreateFolder';
-import FolderItem from './components/folders/FolderItem';
-import { addNote, getNotes, updateNote, deleteNote } from './API/notes';
-import AddNote from './components/notes/AddNote';
-import NoteItem from './components/notes/NoteItem';
-
+import { createFolder, deleteFolder, getFolders, updateFolder } from '../API/folders';
+import { addNote, deleteNote, getNotes, updateNote } from '../API/notes';
+import CreateFolder from '../components/folders/CreateFolder';
+import FolderItem from '../components/folders/FolderItem';
+import AddNote from '../components/notes/AddNote';
+import NoteItem from '../components/notes/NoteItem';
 
 const App: React.FC = () => {
   const [folders, setFolders] = useState<IFolder[]>([]);
