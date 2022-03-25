@@ -1,0 +1,62 @@
+.Sidebar {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 500;
+    background-color: #e9e9eb;
+    color: #828589;
+    width: 230px;
+    height: 100vh;
+
+    .Item {
+        display: flex;
+        align-items: center;
+        padding-left: 15px;
+        height: 25px;
+
+        &:hover {
+            background-color: #d9d9df;
+            color: #262626;
+            cursor: pointer;
+        }
+
+        svg {
+            margin-right: 10px;
+        }
+    }
+
+    .Account {
+        color: #262626;
+        font-weight: 600;
+        width: 100%;
+        height: 50px;
+    }
+
+    .Options {
+        margin-bottom: 25px;
+    }
+
+    .Directory {
+        .Active {
+            font-weight: 600;
+            background-color: #d9d9df;
+            color: #262626;
+
+            &:hover {
+                background-color: #ceced4;
+            }
+        }
+    }
+
+    .Icon {
+        display: inline-block;
+        text-align: center;
+        width: 20px;
+        font-size: 15px;
+        height: fit-content;
+        margin-right: 5px;
+        
+        &:hover {
+            background-color: #bfbcc3;
+        }
+    }
+}
