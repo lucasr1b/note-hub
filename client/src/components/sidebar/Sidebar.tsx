@@ -1,14 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Sidebar.scss'
 import SidebarIcon from './SidebarIcon';
-import SidebarExtend from './SidebarExpand';
+import SidebarExpand from './SidebarExpand';
 import { FaSearch, FaTerminal, FaCog } from 'react-icons/fa';
+import FolderItem from './SidebarFolderItem';
+import { getFolders } from '../../API/FolderAPI';
 
 const Sidebar = () => {
+    const [folders, setFolders] = useState<IFolder[]>([]);
+
+    useEffect(() => {
+        fetchFolders();
+    }, []);
+
+    const fetchFolders = (): void => {
+        getFolders()
+            .then(({ data: { folders } }: IFolder[] | any) => setFolders(folders))
+            .catch((err: Error) => console.log(err));
+    }
+
     return (
         <nav className='Sidebar'>
             <div className='Item Account'>
-                <img src="https://avatars.githubusercontent.com/u/38605132?v=4" width='18' height='18' alt='Profile'/><span>Lucas's Notes</span>
+                <img src="https://avatars.githubusercontent.com/u/38605132?v=4" width='18' height='18' alt='Profile' /><span>Lucas's Notes</span>
             </div>
             <div className='Options'>
                 <div className='Item'><FaSearch /> Search</div>
@@ -16,10 +30,12 @@ const Sidebar = () => {
                 <div className='Item'><FaCog /> Settings</div>
             </div>
             <div className='Directory'>
-                <div className='Item Active'><SidebarExtend /><SidebarIcon icon='📄' />My Notes</div>
-                <div className='Item'><SidebarExtend /><SidebarIcon icon='📚' />School</div>
-                <div className='Item'><SidebarExtend /><SidebarIcon icon='📒' />Projects</div>
-                <div className='Item'><SidebarExtend /><SidebarIcon icon='📕' />Books</div>
+                {folders?.map((folder: IFolder) => (
+                    <FolderItem key={folder._id} folder={folder} />
+                ))}
+                <div className='Item Active'><SidebarExpand /><SidebarIcon icon='📚' />School</div>
+                <div className='Item'><SidebarExpand /><SidebarIcon icon='📒' />Projects</div>
+                <div className='Item'><SidebarExpand /><SidebarIcon icon='📕' />Books</div>
             </div>
             <div className='Footer'>
                 <span>Note Hub v1.0</span>
