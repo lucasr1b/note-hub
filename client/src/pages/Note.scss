@@ -58,18 +58,22 @@ body {
                 margin: 10px 10px 5px 3px;
             }
 
-            textarea {
-                background-color: #1c2126;
-                border: none;
+            #Note--Area {
                 height: 100%;
-                width: 100%;
-                font-size: 16px;
-                overflow: hidden;
-                resize: none;
-                color: white;
 
-                &:focus {
-                    outline: none;
+                textarea {
+                    background-color: #1c2126;
+                    border: none;
+                    height: 100%;
+                    width: 100%;
+                    font-size: 16px;
+                    overflow: hidden;
+                    resize: none;
+                    color: white;
+
+                    &:focus {
+                        outline: none;
+                    }
                 }
             }
         }

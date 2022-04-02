@@ -28,6 +28,30 @@ const Notes = () => {
     const renderViewMode = () => {
 
         setReadModeToggled(!readModeToggled);
+
+        const noteArea = document.getElementById('Note--Area')!;
+
+        if (!readModeToggled) {
+
+            noteArea.firstChild?.remove();
+
+            const content = document.createElement('div');
+
+            content.innerHTML = readModeContent;
+
+            noteArea.append(content);
+        } else {
+            noteArea.firstChild?.remove();
+            const content = document.createElement('textarea')!;
+
+            content.classList.add('Note--Area');
+
+            content.value = markdownText;
+
+            noteArea.append(content);
+        }
+
+
     }
 
     return (
@@ -48,12 +72,11 @@ const Notes = () => {
                     <div className='Todo'><input type='checkbox' />This</div>
                     <div className='Todo'><input type='checkbox' />Work</div> */}
 
-                    <textarea onChange={handleTextInput} style={readModeToggled ? { visibility: 'hidden' } : { visibility: 'visible' }}>
-                        Start typing here...
-                    </textarea>
-
-                    {/* <div dangerouslySetInnerHTML={{ __html: readModeContent }} style={readModeToggled ? {visibility: 'visible'} : {visibility: 'hidden'}}>
-                    </div> */}
+                    <div id='Note--Area'>
+                        <textarea onChange={handleTextInput}>
+                            Start typing here...
+                        </textarea>
+                    </div>
 
                 </main>
             </div>
