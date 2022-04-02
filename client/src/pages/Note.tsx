@@ -48,12 +48,12 @@ const Notes = () => {
                     <div className='Todo'><input type='checkbox' />This</div>
                     <div className='Todo'><input type='checkbox' />Work</div> */}
 
-                    <textarea onChange={handleTextInput} style={readModeToggled ? {visibility: 'hidden'} : {visibility: 'visible'}}>
-
+                    <textarea onChange={handleTextInput} style={readModeToggled ? { visibility: 'hidden' } : { visibility: 'visible' }}>
+                        Start typing here...
                     </textarea>
-                    
-                    <div dangerouslySetInnerHTML={{ __html: readModeContent }} style={readModeToggled ? {visibility: 'visible'} : {visibility: 'hidden'}}>
-                    </div>
+
+                    {/* <div dangerouslySetInnerHTML={{ __html: readModeContent }} style={readModeToggled ? {visibility: 'visible'} : {visibility: 'hidden'}}>
+                    </div> */}
 
                 </main>
             </div>
