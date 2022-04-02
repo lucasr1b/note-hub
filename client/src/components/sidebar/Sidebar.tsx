@@ -35,12 +35,10 @@ const Sidebar = () => {
                 ))} */}
                 <div className='Folder--Block'>
                     <div className='Item'><SidebarExpand /><SidebarIcon icon='📄' />My Notes</div>
-                    <div className='Nested'>
-                        <div className='Item Nested--Item Active'><SidebarExpand /><SidebarIcon icon='📚' />Hello World</div>
-                        <div className='Item Nested--Item'><SidebarExpand /><SidebarIcon icon='📚' />My Name</div>
-                        <div className='Item Nested--Item'><SidebarExpand /><SidebarIcon icon='📚' />My Notes</div>
-                        <div className='Item Nested--Item'><SidebarIcon icon='📄' />My First Note</div>
-                    </div>
+                    <div className='Item Nested--Item'><SidebarExpand /><SidebarIcon icon='📚' />Hello World</div>
+                    <div className='Item Nested--Item'><SidebarExpand /><SidebarIcon icon='📚' />My Name</div>
+                    <div className='Item Nested--Item'><SidebarExpand /><SidebarIcon icon='📚' />My Notes</div>
+                    <div className='Item Active Nested--Item'><SidebarIcon icon='📄' />My First Note</div>
                 </div>
                 <div className='Folder--Block'>
                     <div className='Item'><SidebarExpand /><SidebarIcon icon='📚' />School</div>

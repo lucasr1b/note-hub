@@ -6,9 +6,6 @@ const App = () => {
     return (
         <div className='App'>
             <Sidebar />
-            <main>
-                <h1>Hello World</h1>
-            </main>
         </div>
     )
 }
