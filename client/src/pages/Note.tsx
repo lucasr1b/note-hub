@@ -46,6 +46,10 @@ const Notes = () => {
 
             content.classList.add('Note--Area');
 
+            content.addEventListener('change', (e) => {
+                handleTextInput(e);
+            })
+
             content.value = markdownText;
 
             noteArea.append(content);
@@ -73,8 +77,7 @@ const Notes = () => {
                     <div className='Todo'><input type='checkbox' />Work</div> */}
 
                     <div id='Note--Area'>
-                        <textarea onChange={handleTextInput}>
-                            Start typing here...
+                        <textarea onChange={handleTextInput} defaultValue='Start typing here...'>
                         </textarea>
                     </div>
 
