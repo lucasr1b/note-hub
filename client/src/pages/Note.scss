@@ -75,6 +75,38 @@ body {
                         outline: none;
                     }
                 }
+
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                li::before {
+                    content: "\2022";
+                    color: #485361;
+                    font-weight: bold;
+                    display: inline-block;
+                    width: 1em;
+                }
+
+                em,
+                strong {
+                    color: #ff82b2;
+                }
+
+                h2,
+                h3 {
+                    color: #2e80f2;
+                }
+
+                h4 {
+                    color: #e5b567;
+                }
+
+                h5 {
+                    color: #e83e3e;
+                }
             }
         }
     }
