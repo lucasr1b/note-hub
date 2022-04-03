@@ -1,17 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import Sidebar from '../components/sidebar/Sidebar';
 import './Note.scss';
 import MarkdownIt from 'markdown-it';
+import { getTitleFromPath } from '../API/APIUtils';
 
 const Notes = () => {
     const { folder, note } = useParams();
+
+    const [noteTitle, setNoteTitle] = useState("");
 
     const [markdownText, setMarkDownText] = useState("");
 
     const [readModeContent, setReadModeContent] = useState("");
 
     const [readModeToggled, setReadModeToggled] = useState(false);
+
+    useEffect(() => {
+
+        getTitleFromPath('my-notes', 'hello-world')
+            .then(({ data: { notes } }: INote[] | any) => setNoteTitle(notes[0].title))
+
+
+        const title = document.getElementById('Note--Title')!;
+
+        title.innerHTML = noteTitle;
+    })
 
     const handleTextInput = (e: any) => {
 
@@ -22,7 +36,6 @@ const Notes = () => {
         setReadModeContent(renderedHTML);
 
         setMarkDownText(e.target.value);
-
     }
 
     const renderViewMode = () => {
@@ -63,7 +76,7 @@ const Notes = () => {
             <Sidebar />
             <div className='Container'>
                 <header>
-                    <div className='Note--Details'><span className='Note--Icon'>📄</span><span className='Note--Name'>My First Note</span><button onClick={renderViewMode}>Read</button></div>
+                    <div className='Note--Details'><span className='Note--Icon'>📄</span><span id='Note--Title' contentEditable='true'></span><button onClick={renderViewMode}>Read</button></div>
                     <div className='Divider'></div>
                 </header>
                 <main>

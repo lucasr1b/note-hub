@@ -13,6 +13,7 @@ interface NoteProps {
 }
 
 type NoteDataType = {
+    title: string;
     message: string;
     status: string;
     notes: INote[];
