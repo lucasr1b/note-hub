@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteNote = exports.updateNote = exports.addNote = exports.getNotes = void 0;
+exports.deleteNote = exports.updateNote = exports.addNote = exports.getNote = exports.getNotes = void 0;
 const note_1 = __importDefault(require("../models/note"));
 const getNotes = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -26,6 +26,17 @@ const getNotes = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.getNotes = getNotes;
+const getNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const id = req.query.id;
+        const note = yield note_1.default.find({ _id: id });
+        res.status(200).json({ note });
+    }
+    catch (err) {
+        throw err;
+    }
+});
+exports.getNote = getNote;
 const addNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const body = req.body;

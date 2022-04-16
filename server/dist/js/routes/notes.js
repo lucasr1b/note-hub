@@ -4,6 +4,7 @@ const express_1 = require("express");
 const notes_1 = require("../controllers/notes");
 const router = (0, express_1.Router)();
 router.get('/api/notes', notes_1.getNotes);
+router.get('/api/notes/getNote', notes_1.getNote);
 router.post('/api/notes/add-note', notes_1.addNote);
 router.put('/api/notes/update-note/:id', notes_1.updateNote);
 router.delete('/api/notes/delete-note/:id', notes_1.deleteNote);

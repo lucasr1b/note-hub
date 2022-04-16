@@ -9,13 +9,3 @@ export const createPath = (name: string) => {
 
     return (path.substring(path.length - 1) === '-' ? path.slice(0, -1) : path);
 }
-
-export const getTitleFromPath = async (folder: string, path: string): Promise<AxiosResponse<NoteDataType>> => {
-    try {
-        const note: AxiosResponse<NoteDataType> = await axios.get(`${baseUrl}/api/notes`, { params: { folder: folder, path: path } });
-        return note;
-    } catch (err) {
-        throw (err);
-    }
-
-}

@@ -3,14 +3,14 @@ import { useParams } from 'react-router';
 import Sidebar from '../components/sidebar/Sidebar';
 import './Note.scss';
 import MarkdownIt from 'markdown-it';
-import { getTitleFromPath } from '../API/APIUtils';
+import { getNote } from '../API/NoteAPI';
 
 const Notes = () => {
-    const { folder, note } = useParams();
+    const { folderID, noteID } = useParams();
 
     const [noteTitle, setNoteTitle] = useState("");
 
-    const [markdownText, setMarkDownText] = useState("");
+    const [markdownContent, setMarkdownContent] = useState("");
 
     const [readModeContent, setReadModeContent] = useState("");
 
@@ -18,14 +18,15 @@ const Notes = () => {
 
     useEffect(() => {
 
-        getTitleFromPath('my-notes', 'hello-world')
-            .then(({ data: { notes } }: INote[] | any) => setNoteTitle(notes[0].title))
+        getNote(noteID?.toString())
+            .then(({ data: { note } }: INote[] | any) => handleNoteInfo(note[0]))
 
-
-        const title = document.getElementById('Note--Title')!;
-
-        title.innerHTML = noteTitle;
     })
+
+    const handleNoteInfo = (note: any) => {
+        setNoteTitle(note.title);
+        setMarkdownContent(note.content);
+    }
 
     const handleTextInput = (e: any) => {
 
@@ -35,7 +36,7 @@ const Notes = () => {
 
         setReadModeContent(renderedHTML);
 
-        setMarkDownText(e.target.value);
+        setMarkdownContent(e.target.value);
     }
 
     const renderViewMode = () => {
@@ -63,7 +64,7 @@ const Notes = () => {
                 handleTextInput(e);
             })
 
-            content.value = markdownText;
+            content.value = markdownContent;
 
             noteArea.append(content);
         }
@@ -76,7 +77,7 @@ const Notes = () => {
             <Sidebar />
             <div className='Container'>
                 <header>
-                    <div className='Note--Details'><span className='Note--Icon'>📄</span><span id='Note--Title' contentEditable='true'></span><button onClick={renderViewMode}>Read</button></div>
+                    <div className='Note--Details'><span className='Note--Icon'>📄</span><span id='Note--Title'>{ noteTitle }</span><button onClick={renderViewMode}>Read</button></div>
                     <div className='Divider'></div>
                 </header>
                 <main>
@@ -90,7 +91,7 @@ const Notes = () => {
                     <div className='Todo'><input type='checkbox' />Work</div> */}
 
                     <div id='Note--Area'>
-                        <textarea onChange={handleTextInput} defaultValue='Start typing here...'>
+                        <textarea onChange={handleTextInput} defaultValue={markdownContent}>
                         </textarea>
                     </div>
 

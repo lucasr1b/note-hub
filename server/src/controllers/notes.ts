@@ -4,7 +4,6 @@ import Note from '../models/note';
 
 const getNotes = async (req: Request, res: Response): Promise<void> => {
     try {
-
         const folderPath = req.query.folder;
         
         const notes: INote[] = folderPath === '' ? await Note.find() : await Note.find( {folder: folderPath});
@@ -12,6 +11,18 @@ const getNotes = async (req: Request, res: Response): Promise<void> => {
         console.log(req.query);
     } catch (error) {
         throw error;
+    }
+}
+
+const getNote = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const id = req.query.id;
+
+        const note: INote[] = await Note.find({ _id: id });
+        res.status(200).json({ note });
+
+    } catch (err) {
+        throw err;
     }
 }
 
@@ -72,4 +83,4 @@ const deleteNote = async (req: Request, res: Response): Promise<void> => {
     }
 }
 
-export { getNotes, addNote, updateNote, deleteNote };
+export { getNotes, getNote, addNote, updateNote, deleteNote };

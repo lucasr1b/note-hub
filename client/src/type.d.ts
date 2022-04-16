@@ -13,6 +13,7 @@ interface NoteProps {
 }
 
 type NoteDataType = {
+    _id: string;
     title: string;
     message: string;
     status: string;

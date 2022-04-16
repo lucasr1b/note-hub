@@ -9,12 +9,23 @@ export const getNotes = async (folder: any): Promise<AxiosResponse<NoteDataType>
 
         console.log(folder);
 
-        const notes: AxiosResponse<NoteDataType> = await axios.get(`${baseUrl}/api/notes`, { params: { folder: folder} });
+        const notes: AxiosResponse<NoteDataType> = await axios.get(`${baseUrl}/api/notes`, { params: { folder: folder } });
 
         return notes;
-        
+
     } catch (error) {
         throw error;
+    }
+}
+
+export const getNote = async (id: any): Promise<AxiosResponse<NoteDataType>> => {
+    try {
+
+        const note: AxiosResponse<NoteDataType> = await axios.get(`${baseUrl}/api/notes/getNote`, { params: { id: id } });
+
+        return note;
+    } catch (err) {
+        throw err;
     }
 }
 

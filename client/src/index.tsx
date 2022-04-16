@@ -10,7 +10,7 @@ ReactDOM.render(
     <Routes>
       <Route path='/' element={<App />} />
       <Route path='notes/:folder' element={<Folder />} />
-      <Route path='notes/:folder/:note' element={<Note />} />
+      <Route path='notes/:folderID/:noteID' element={<Note />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById('root')
