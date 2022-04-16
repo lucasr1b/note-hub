@@ -8,6 +8,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const cors_1 = __importDefault(require("cors"));
 const notes_1 = __importDefault(require("./routes/notes"));
 const folders_1 = __importDefault(require("./routes/folders"));
+require('dotenv').config();
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 4000;
 app.use((0, cors_1.default)());

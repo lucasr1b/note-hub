@@ -4,6 +4,8 @@ import cors from 'cors';
 import noteRoutes from './routes/notes';
 import folderRoutes from './routes/folders';
 
+require('dotenv').config();
+
 const app: Express = express();
 
 const PORT: string | number = process.env.PORT || 4000;
