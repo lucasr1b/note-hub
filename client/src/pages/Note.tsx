@@ -28,6 +28,10 @@ const Notes = () => {
     const handleNoteInfo = (note: any) => {
         setNoteTitle(note.title);
         setMarkdownContent(note.content);
+
+        let md = new MarkdownIt();
+
+        setReadModeContent(md.render(note.content));
     }
 
     const handleTextInput = (e: any) => {
@@ -37,6 +41,8 @@ const Notes = () => {
         const renderedHTML = md.render(e.target.value);
 
         setReadModeContent(renderedHTML);
+
+        console.log(renderedHTML);
 
         updateNote(noteID, e.target.value); // Make this only be called every 1-3 seconds.
 
