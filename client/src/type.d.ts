@@ -1,9 +1,9 @@
 interface INote {
     _id: string;
-    title: string;
-    content: string;
+    title?: string;
+    content?: string;
     folder?: string;
-    path: string;
+    path?: string;
     createdAt?: string;
     updatedAt?: string;
 }

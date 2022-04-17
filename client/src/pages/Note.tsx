@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import Sidebar from '../components/sidebar/Sidebar';
 import './Note.scss';
 import MarkdownIt from 'markdown-it';
-import { getNote } from '../API/NoteAPI';
+import { getNote, updateNote } from '../API/NoteAPI';
 
 const Notes = () => {
     const { folderID, noteID } = useParams();
@@ -21,7 +21,9 @@ const Notes = () => {
         getNote(noteID?.toString())
             .then(({ data: { note } }: INote[] | any) => handleNoteInfo(note[0]))
 
-    })
+        console.log("useEffect function called.")
+
+    }, [])
 
     const handleNoteInfo = (note: any) => {
         setNoteTitle(note.title);
@@ -35,6 +37,8 @@ const Notes = () => {
         const renderedHTML = md.render(e.target.value);
 
         setReadModeContent(renderedHTML);
+
+        updateNote(noteID, e.target.value); // Make this only be called every 1-3 seconds.
 
         setMarkdownContent(e.target.value);
     }
@@ -77,21 +81,13 @@ const Notes = () => {
             <Sidebar />
             <div className='Container'>
                 <header>
-                    <div className='Note--Details'><span className='Note--Icon'>📄</span><span id='Note--Title'>{ noteTitle }</span><button onClick={renderViewMode}>Read</button></div>
+                    <div className='Note--Details'><span className='Note--Icon'>📄</span><span id='Note--Title'>{noteTitle}</span><button onClick={renderViewMode}>Read</button></div>
                     <div className='Divider'></div>
                 </header>
                 <main>
-                    {/* <h1>My First Note</h1>
-                    <p>Hello World</p>
-                    <br></br>
-                    <p>This is my first note</p>
-                    <br></br>
-                    <div className='Todo'><input type='checkbox' />Make</div>
-                    <div className='Todo'><input type='checkbox' />This</div>
-                    <div className='Todo'><input type='checkbox' />Work</div> */}
 
                     <div id='Note--Area'>
-                        <textarea onChange={handleTextInput} defaultValue={markdownContent}>
+                        <textarea onChange={handleTextInput} value={markdownContent}>
                         </textarea>
                     </div>
 

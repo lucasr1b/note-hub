@@ -62,14 +62,15 @@ const addNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.addNote = addNote;
 const updateNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { params: { id }, body, } = req;
-        const updateNote = yield note_1.default.findByIdAndUpdate({ _id: id }, body);
-        const allNotes = yield note_1.default.find();
+        const id = req.body.id;
+        const content = req.body.content;
+        const updateNote = yield note_1.default.findByIdAndUpdate(id, { content: content });
+        console.log(id);
         res.status(200).json({
             message: 'Note updated',
-            note: updateNote,
-            notes: allNotes,
+            updatedNote: updateNote,
         });
+        console.log(req.body);
     }
     catch (error) {
         throw error;

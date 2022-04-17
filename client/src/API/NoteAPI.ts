@@ -29,7 +29,7 @@ export const getNote = async (id: any): Promise<AxiosResponse<NoteDataType>> => 
     }
 }
 
-export const addNote = async (formData: INote): Promise<AxiosResponse<NoteDataType>> => {
+export const addNote = async (formData: any): Promise<AxiosResponse<NoteDataType>> => {
     try {
 
         const path = createPath(formData.title);
@@ -49,14 +49,10 @@ export const addNote = async (formData: INote): Promise<AxiosResponse<NoteDataTy
     }
 }
 
-export const updateNote = async (note: INote): Promise<AxiosResponse<NoteDataType>> => {
+export const updateNote = async (id: any, content: string): Promise<AxiosResponse<NoteDataType>> => {
     try {
 
-        const noteUpdate: Pick<INote, 'content'> = {
-            content: 'Updated content placeholder',
-        };
-
-        const updatedNote: AxiosResponse<NoteDataType> = await axios.put(`${baseUrl}/api/notes/edit-note/${note._id}`, noteUpdate);
+        const updatedNote: AxiosResponse<NoteDataType> = await axios.put(`${baseUrl}/api/notes/update-note`, { id: id, content: content });
         return updatedNote;
 
     } catch (error) {

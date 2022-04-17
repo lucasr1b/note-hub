@@ -19,13 +19,13 @@ const Folder: React.FC = () => {
   }
 
   const handleUpdateNote = (note: INote): void => {
-    updateNote(note)
-      .then(({ status, data }) => {
-        if (status !== 200) {
-          throw new Error('Error! Note could not be updated.');
-        }
-        setNotes(data.notes);
-      }).catch(err => console.log(err));
+    // updateNote(note)
+    //   .then(({ status, data }) => {
+    //     if (status !== 200) {
+    //       throw new Error('Error! Note could not be updated.');
+    //     }
+    //     setNotes(data.notes);
+    //   }).catch(err => console.log(err));
   }
 
   const handleSaveNote = (e: React.FormEvent, formData: INote): void => {

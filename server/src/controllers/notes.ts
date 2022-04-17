@@ -5,8 +5,8 @@ import Note from '../models/note';
 const getNotes = async (req: Request, res: Response): Promise<void> => {
     try {
         const folderPath = req.query.folder;
-        
-        const notes: INote[] = folderPath === '' ? await Note.find() : await Note.find( {folder: folderPath});
+
+        const notes: INote[] = folderPath === '' ? await Note.find() : await Note.find({ folder: folderPath });
         res.status(200).json({ notes });
         console.log(req.query);
     } catch (error) {
@@ -54,15 +54,18 @@ const addNote = async (req: Request, res: Response): Promise<void> => {
 
 const updateNote = async (req: Request, res: Response): Promise<void> => {
     try {
-        const { params: { id }, body, } = req
-        const updateNote: INote | null = await Note.findByIdAndUpdate({ _id: id }, body);
-        const allNotes: INote[] = await Note.find()
+        const id = req.body.id;
+        const content = req.body.content;
+        
+        const updateNote: INote | null = await Note.findByIdAndUpdate(id, { content: content });
+
+        console.log(id)
 
         res.status(200).json({
             message: 'Note updated',
-            note: updateNote,
-            notes: allNotes,
+            updatedNote: updateNote,
         })
+        console.log(req.body);
     } catch (error) {
         throw error;
     }
