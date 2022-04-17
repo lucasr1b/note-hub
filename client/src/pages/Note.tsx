@@ -5,6 +5,10 @@ import './Note.scss';
 import MarkdownIt from 'markdown-it';
 import { getNote, updateNote } from '../API/NoteAPI';
 
+const md = require('markdown-it')({
+    typographer: true,
+})
+
 const Notes = () => {
     const { folderID, noteID } = useParams();
 
@@ -29,14 +33,10 @@ const Notes = () => {
         setNoteTitle(note.title);
         setMarkdownContent(note.content);
 
-        let md = new MarkdownIt();
-
         setReadModeContent(md.render(note.content));
     }
 
     const handleTextInput = (e: any) => {
-
-        let md = new MarkdownIt();
 
         const renderedHTML = md.render(e.target.value);
 
