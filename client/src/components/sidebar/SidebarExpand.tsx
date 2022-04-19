@@ -1,23 +1,43 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaCaretRight } from 'react-icons/fa';
 
 const SidebarExpand = () => {
-  const [style, setStyle] = useState({});
-  const [expanded, setExpanded] = useState('');
 
-  const rotateCaret = (e:any) => {
-    console.log(e.target.getAttribute('data-expanded'))
+  const openFolder = (e: any) => {
+    let caretElem;
 
-    setStyle({
-      transition: 'transform 200ms ease-out 0s',
-      transform: e.target.getAttribute('data-expanded') === 'expanded' ? 'rotate(0deg)' : 'rotate(90deg)',
-    })
+    if (e.target.tagName.toLowerCase() == 'svg') {
+      caretElem = e.target.parentElement
+    } else {
+      caretElem = e.target.parentElement.parentElement;
+    }
 
-    setExpanded(expanded === 'expanded' ? '' : 'expanded');
+    const isExpanded = caretElem.dataset.isexpanded == "true"
+
+    const folderElem = caretElem.parentElement;
+
+    const styles = {
+      'transition': 'transform 200ms ease-out 0s',
+      'transform': isExpanded ? 'rotate(0deg)' : 'rotate(90deg)'
+    }
+
+    Object.assign(caretElem.firstChild.style, styles);
+
+
+    caretElem.dataset.isexpanded = !isExpanded;
+
+    var toggleElems = [].slice.call(folderElem.parentElement.children);
+    var classNames = "File,Folder--Block,No--Items".split(",");
+
+    toggleElems.forEach(function (element: any) {
+      if (classNames.some(function (val) { return element.classList.contains(val); }))
+        element.classList.toggle('Unopened')
+    });
+
   }
 
   return (
-    <div className='Expand Icon'><FaCaretRight onClick={rotateCaret} style={style} data-expanded={expanded}/></div>
+    <div className='Expand Icon'><FaCaretRight onClick={openFolder} data-isexpanded={false} /></div>
   )
 }
 

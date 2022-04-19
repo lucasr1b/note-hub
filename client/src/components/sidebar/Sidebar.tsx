@@ -34,20 +34,9 @@ const Sidebar = () => {
                     <FolderItem key={folder._id} folder={folder} />
                 ))} */}
                 <div className='Folder--Block'>
-                    <div className='Item'><SidebarExpand /><SidebarIcon icon='📄' />My Notes</div>
-                    <div className='Item Nested--Item'><SidebarExpand /><SidebarIcon icon='📚' />Hello World</div>
-                    <div className='Item Nested--Item'><SidebarExpand /><SidebarIcon icon='📚' />My Name</div>
-                    <div className='Item Nested--Item'><SidebarExpand /><SidebarIcon icon='📚' />My Notes</div>
-                    <div className='Item Active Nested--Item'><SidebarIcon icon='📄' />My First Note</div>
-                </div>
-                <div className='Folder--Block'>
-                    <div className='Item'><SidebarExpand /><SidebarIcon icon='📚' />School</div>
-                </div>
-                <div className='Folder--Block'>
-                    <div className='Item'><SidebarExpand /><SidebarIcon icon='📒' />Projects</div>
-                </div>
-                <div className='Folder--Block'>
-                    <div className='Item'><SidebarExpand /><SidebarIcon icon='📕' />Books</div>
+                    <div className='Folder'><SidebarExpand /><SidebarIcon icon='📄' />My Notes</div>
+                    <div className='File Active Unopened'><SidebarIcon icon='📄' />My First Note</div>
+                    <div className='File Unopened'><SidebarIcon icon='📄' />My Second Note</div>
                 </div>
             </div>
             <div className='Footer'>

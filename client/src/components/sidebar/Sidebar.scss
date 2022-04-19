@@ -7,10 +7,10 @@
     width: 15%;
     height: 100vh;
 
-    .Item {
+    .Folder, .File, .Item {
         display: flex;
         align-items: center;
-        padding-left: 15px;
+        padding-left: 5px;
         height: 28px;
 
         &:hover {
@@ -21,6 +21,14 @@
         svg {
             width: 16px;
         }
+    }
+
+    .File {
+        padding: 5px 5px 5px 40px;
+    }
+    
+    .Item {
+        padding-left: 15px;
     }
 
     .Account {
@@ -44,11 +52,8 @@
     }
 
     .Directory {
-        .Nested--Item {
-            padding-left: 26px;
-        }
-        .Nested--Item > .Nested--Item {
-            padding-left: 42px;
+        .Unopened {
+            display: none;
         }
 
         .Active {
@@ -91,7 +96,6 @@
         justify-content: center;
         align-items: center;
         font-size: 15px;
-        margin-right: 5px;
         height: 20px;
         width: 20px;
 
@@ -103,5 +107,9 @@
             background-color: #1d1e2a;
             border-radius: 3px;
         }
+    }
+
+    .Emoji {
+        margin-right: 5px;
     }
 }
