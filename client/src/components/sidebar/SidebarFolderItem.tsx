@@ -22,7 +22,7 @@ const FolderItem: React.FC<FolderProps> = ({ folder }) => {
     <div className='Folder--Block'>
       <div className='Folder'><SidebarExpand /><SidebarIcon icon='📄' />{folder.name}</div>
       {notes?.map((note: INote) => (
-        <div className='File Unopened' key={note._id}><SidebarIcon icon='📄' />{note.title}</div>
+        <Link className='File Unopened' key={note._id} to={`notes/${folder._id}/${note._id}`}><SidebarIcon icon='📄' />{note.title}</Link>
       ))}
     </div>
   )

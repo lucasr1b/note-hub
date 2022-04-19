@@ -7,6 +7,11 @@
     width: 15%;
     height: 100vh;
 
+    a.File {
+        color: #8493a4;
+        text-decoration: none;
+    }
+
     .Folder, .File, .Item {
         display: flex;
         align-items: center;
