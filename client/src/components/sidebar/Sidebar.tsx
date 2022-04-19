@@ -33,12 +33,6 @@ const Sidebar = () => {
                 {folders?.map((folder: IFolder) => (
                     <FolderItem key={folder._id} folder={folder} />
                 ))}
-                ))
-                <div className='Folder--Block'>
-                    <div className='Folder'><SidebarExpand /><SidebarIcon icon='📄' />My Notes</div>
-                    <div className='File Active Unopened'><SidebarIcon icon='📄' />My First Note</div>
-                    <div className='File Unopened'><SidebarIcon icon='📄' />My Second Note</div>
-                </div>
             </div>
             <div className='Footer'>
                 <span>Note Hub v1.0</span>
