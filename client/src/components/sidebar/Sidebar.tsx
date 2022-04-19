@@ -30,25 +30,9 @@ const Sidebar = () => {
                 <div className='Item'><FaCog /> Settings</div>
             </div>
             <div className='Directory'>
-                {/* {folders?.map((folder: IFolder) => (
+                {folders?.map((folder: IFolder) => (
                     <FolderItem key={folder._id} folder={folder} />
-                ))} */}
-                <div className='Folder--Block'>
-                    <div className='Item'><SidebarExpand /><SidebarIcon icon='📄' />My Notes</div>
-                    <div className='Item Nested--Item'><SidebarExpand /><SidebarIcon icon='📚' />Hello World</div>
-                    <div className='Item Nested--Item'><SidebarExpand /><SidebarIcon icon='📚' />My Name</div>
-                    <div className='Item Nested--Item'><SidebarExpand /><SidebarIcon icon='📚' />My Notes</div>
-                    <div className='Item Active Nested--Item'><SidebarIcon icon='📄' />My First Note</div>
-                </div>
-                <div className='Folder--Block'>
-                    <div className='Item'><SidebarExpand /><SidebarIcon icon='📚' />School</div>
-                </div>
-                <div className='Folder--Block'>
-                    <div className='Item'><SidebarExpand /><SidebarIcon icon='📒' />Projects</div>
-                </div>
-                <div className='Folder--Block'>
-                    <div className='Item'><SidebarExpand /><SidebarIcon icon='📕' />Books</div>
-                </div>
+                ))}
             </div>
             <div className='Footer'>
                 <span>Note Hub v1.0</span>
