@@ -25,8 +25,6 @@ const Notes = () => {
         getNote(noteID?.toString())
             .then(({ data: { note } }: INote[] | any) => handleNoteInfo(note[0]))
 
-        console.log("useEffect function called.")
-
     }, [])
 
     const handleNoteInfo = (note: any) => {
@@ -41,8 +39,6 @@ const Notes = () => {
         const renderedHTML = md.render(e.target.value);
 
         setReadModeContent(renderedHTML);
-
-        console.log(renderedHTML);
 
         updateNote(noteID, e.target.value); // Make this only be called every 1-3 seconds.
 

@@ -7,8 +7,6 @@ const baseUrl: string = 'http://localhost:4000';
 export const getNotes = async (folder: any): Promise<AxiosResponse<NoteDataType>> => {
     try {
 
-        console.log(folder);
-
         const notes: AxiosResponse<NoteDataType> = await axios.get(`${baseUrl}/api/notes`, { params: { folder: folder } });
 
         return notes;
