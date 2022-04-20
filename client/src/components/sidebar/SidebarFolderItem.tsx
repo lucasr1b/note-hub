@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { getNotes } from '../../API/NoteAPI';
 import SidebarExpand from './SidebarExpand';
@@ -22,7 +23,7 @@ const FolderItem: React.FC<FolderProps> = ({ folder }) => {
     <div className='Folder--Block'>
       <div className='Folder'><SidebarExpand /><SidebarIcon icon='📄' />{folder.name}</div>
       {notes?.map((note: INote) => (
-        <Link className="File Unopened" key={note._id} to={`/notes/${folder._id}/${note._id}`}><SidebarIcon icon='📄' />{note.title}</Link>
+        <NavLink className={({ isActive }) => 'File Unopened ' + (isActive ? 'Active' : '')} key={note._id} to={`/notes/${folder._id}/${note._id}`}><SidebarIcon icon='📄' />{note.title}</NavLink>
       ))}
     </div>
   )
