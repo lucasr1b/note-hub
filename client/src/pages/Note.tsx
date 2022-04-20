@@ -25,7 +25,7 @@ const Notes = () => {
         getNote(noteID?.toString())
             .then(({ data: { note } }: INote[] | any) => handleNoteInfo(note[0]))
 
-    }, [])
+    }, [noteID])
 
     const handleNoteInfo = (note: any) => {
         setNoteTitle(note.title);
