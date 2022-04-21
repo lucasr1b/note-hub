@@ -8,6 +8,11 @@ const folderSchema: Schema = new Schema(
             required: true,
         },
 
+        opened: {
+            type: String,
+            required: false,
+        },
+
         path: {
             type: String,
             required: true,

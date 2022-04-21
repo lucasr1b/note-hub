@@ -5,6 +5,6 @@ const folders_1 = require("../controllers/folders");
 const router = (0, express_1.Router)();
 router.get('/api/folders', folders_1.getFolders);
 router.post('/api/folders/create-folder', folders_1.createFolder);
-router.put('/api/folders/update-folder/:id', folders_1.updateFolder);
+router.put('/api/folders/update-folder', folders_1.updateFolder);
 router.delete('/api/folders/delete-folder/:id', folders_1.deleteFolder);
 exports.default = router;

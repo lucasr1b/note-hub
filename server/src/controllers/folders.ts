@@ -38,18 +38,20 @@ const createFolder = async (req: Request, res: Response): Promise<void> => {
 
 const updateFolder = async (req: Request, res: Response): Promise<void> => {
     try {
-        const { params: { id }, body } = req;
+        const id = req.body.id;
+        const opened = req.body.opened;
+        
+        const updateFolder: IFolder | null = await Folder.findByIdAndUpdate(id, { opened: opened });
 
-        const updateFolder: IFolder | null = await note.findByIdAndUpdate({ _id: id }, body);
-        const allFolders: IFolder[] = await Folder.find();
+        console.log(id)
 
         res.status(200).json({
-            message: 'Updated folder',
-            folder: updateFolder,
-            folders: allFolders,
+            message: 'Folder updated',
+            updatedFolder: updateFolder,
         })
-    } catch (err) {
-        console.log(err);
+        console.log(req.body);
+    } catch (error) {
+        throw error;
     }
 }
 

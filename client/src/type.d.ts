@@ -25,7 +25,8 @@ type NoteDataType = {
 interface IFolder {
     _id: string;
     name: string;
-    path: string;
+    path?: string;
+    opened?: string;
     createdAt?: string;
     updatedAt?: string;
 }

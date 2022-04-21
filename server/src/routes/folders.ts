@@ -5,7 +5,7 @@ const router: Router = Router();
 
 router.get('/api/folders', getFolders);
 router.post('/api/folders/create-folder', createFolder);
-router.put('/api/folders/update-folder/:id', updateFolder);
+router.put('/api/folders/update-folder', updateFolder);
 router.delete('/api/folders/delete-folder/:id', deleteFolder);
 
 export default router;

@@ -35,13 +35,13 @@ const App: React.FC = () => {
   }
 
   const handleUpdateFolder = (folder: IFolder): void => {
-    updateFolder(folder)
-      .then(({ status, data }) => {
-        if (status !== 200) {
-          throw new Error('Error! Folder could not be updated.');
-        }
-        setFolders(data.folders);
-      }).catch(err => console.log(err));
+    // updateFolder(folder)
+    //   .then(({ status, data }) => {
+    //     if (status !== 200) {
+    //       throw new Error('Error! Folder could not be updated.');
+    //     }
+    //     setFolders(data.folders);
+    //   }).catch(err => console.log(err));
   }
 
   const handleDeleteFolder = (_id: string): void => {

@@ -6,6 +6,10 @@ const folderSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    opened: {
+        type: String,
+        required: false,
+    },
     path: {
         type: String,
         required: true,

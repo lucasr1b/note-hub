@@ -14,7 +14,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteFolder = exports.updateFolder = exports.createFolder = exports.getFolders = void 0;
 const folder_1 = __importDefault(require("../models/folder"));
-const note_1 = __importDefault(require("../models/note"));
 const getFolders = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const folders = yield folder_1.default.find();
@@ -47,17 +46,18 @@ const createFolder = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 exports.createFolder = createFolder;
 const updateFolder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { params: { id }, body } = req;
-        const updateFolder = yield note_1.default.findByIdAndUpdate({ _id: id }, body);
-        const allFolders = yield folder_1.default.find();
+        const id = req.body.id;
+        const opened = req.body.opened;
+        const updateFolder = yield folder_1.default.findByIdAndUpdate(id, { opened: opened });
+        console.log(id);
         res.status(200).json({
-            message: 'Updated folder',
-            folder: updateFolder,
-            folders: allFolders,
+            message: 'Folder updated',
+            updatedFolder: updateFolder,
         });
+        console.log(req.body);
     }
-    catch (err) {
-        console.log(err);
+    catch (error) {
+        throw error;
     }
 });
 exports.updateFolder = updateFolder;

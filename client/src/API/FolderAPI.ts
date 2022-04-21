@@ -31,17 +31,14 @@ export const createFolder = async (formData: IFolder): Promise<AxiosResponse<Fol
     }
 }
 
-export const updateFolder = async (folder: IFolder): Promise<AxiosResponse<FolderDataType>> => {
+export const updateFolder = async (id: any, opened: string): Promise<AxiosResponse<FolderDataType>> => {
     try {
-        const folderUpdate: Pick<IFolder, 'name'> = {
-            name: 'Updated folder name',
-        };
 
-        const updatedFolder: AxiosResponse<FolderDataType> = await axios.put(`${baseUrl}/api/folders/update-folder`, folderUpdate)
+        const updatedFolder: AxiosResponse<FolderDataType> = await axios.put(`${baseUrl}/api/folders/update-folder`, { id: id, opened: opened });
         return updatedFolder;
 
-    } catch (err) {
-        throw err;
+    } catch (error) {
+        throw error;
     }
 }
 
