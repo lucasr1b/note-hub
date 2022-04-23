@@ -4,6 +4,8 @@ import { updateFolder } from '../../API/FolderAPI';
 
 const SidebarExpand = (folder: any) => {
 
+  const classNames = "File,Folder--Block,No--Items".split(",");
+
   useEffect(() => {
     const elem = document.getElementById(folder.folder._id);
 
@@ -21,30 +23,27 @@ const SidebarExpand = (folder: any) => {
     let caretElem;
 
     if (e.target.tagName.toLowerCase() == 'svg') {
-      caretElem = e.target.parentElement
+      caretElem = e.target;
     } else {
-      caretElem = e.target.parentElement.parentElement;
+      caretElem = e.target.parentElement;
     }
 
-    console.log(caretElem);
-
     const isExpanded = caretElem.dataset.isexpanded == "true"
-
-    const folderElem = caretElem.parentElement;
 
     const styles = {
       'transition': 'transform 200ms ease-out 0s',
       'transform': isExpanded ? 'rotate(0deg)' : 'rotate(90deg)'
     }
 
-    Object.assign(caretElem.firstChild.style, styles);
+    Object.assign(caretElem.style, styles);
 
     caretElem.dataset.isexpanded = !isExpanded;
 
     updateFolder(folder.folder._id, (!isExpanded).toString());
 
-    var toggleElems = [].slice.call(folderElem.parentElement.children);
-    var classNames = "File,Folder--Block,No--Items".split(",");
+    const elem = caretElem.parentElement.parentElement.parentElement;
+
+    var toggleElems = [].slice.call(elem.children);
 
     toggleElems.forEach(function (element: any) {
       if (classNames.some(function (val) { return element.classList.contains(val); }))
@@ -54,7 +53,7 @@ const SidebarExpand = (folder: any) => {
   }
 
   return (
-    <div className='Expand Icon' data-isexpanded={folder.folder.opened}><FaCaretRight onClick={openFolder} id={folder.folder._id} /></div>
+    <div className='Expand Icon'><FaCaretRight onClick={openFolder} id={folder.folder._id} data-isexpanded={folder.folder.opened}/></div>
   )
 }
 

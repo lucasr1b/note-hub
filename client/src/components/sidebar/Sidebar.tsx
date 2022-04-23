@@ -3,7 +3,7 @@ import './Sidebar.scss'
 import SidebarIcon from './SidebarIcon';
 import SidebarExpand from './SidebarExpand';
 import { FaSearch, FaTerminal, FaCog } from 'react-icons/fa';
-import FolderItem from './SidebarFolderItem';
+import SidebarFolderItem from './SidebarFolderItem';
 import { getFolders } from '../../API/FolderAPI';
 
 const Sidebar = () => {
@@ -31,7 +31,7 @@ const Sidebar = () => {
             </div>
             <div className='Directory'>
                 {folders?.map((folder: IFolder) => (
-                    <FolderItem key={folder._id} folder={folder} />
+                    <SidebarFolderItem key={folder._id} folder={folder} />
                 ))}
             </div>
             <div className='Footer'>
